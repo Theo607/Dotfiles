@@ -1,5 +1,16 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# Hybrid Palette: Kanagawa colors that mimic the Gruvbox warmth
+palette = "kanagawa_gruv"
+
+[palettes.kanagawa_gruv]
+bg_dim = "#1F1F28"       # Sumi Ink (Background)
+paper = "#DCD7BA"        # Fuji White (The "Cream" text)
+faded_green = "#76946A"  # Spring Green (Muted forest)
+sand_gold = "#DCA561"    # Autumn Yellow (The Gruvbox Yellow/Orange)
+clay_red = "#C34043"     # Autumn Red (Muted, earthy red)
+wood_grey = "#727169"    # Old White (Warm brownish grey)
+
 format = """
 $username\
 $hostname\
@@ -13,20 +24,23 @@ $python\
 $character"""
 
 [directory]
-style = "blue"
+# Gruvbox style: Use a warm green or the paper white for the path
+style = "bold faded_green" 
 
 [character]
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+# The iconic Gruvbox gold/yellow
+success_symbol = "[❯](bold sand_gold)" 
+error_symbol = "[❯](bold clay_red)"
+vimcmd_symbol = "[❮](wood_grey)"
 
 [git_branch]
 format = "[$branch]($style)"
-style = "bright-black"
+style = "bold sand_gold"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "cyan"
+# Red for the "!" symbols, grey for the rest
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](clay_red) ($ahead_behind$stashed)]($style)"
+style = "wood_grey"
 conflicted = "​"
 untracked = "​"
 modified = "​"
@@ -37,14 +51,14 @@ stashed = "≡"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
+style = "wood_grey"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "yellow"
+style = "wood_grey"
 
 [python]
 format = "[$virtualenv]($style) "
-style = "bright-black"
+style = "wood_grey"
 detect_extensions = []
 detect_files = []

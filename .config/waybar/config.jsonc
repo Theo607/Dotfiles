@@ -1,0 +1,57 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": [ "niri/workspaces", "niri/window" ],
+    "modules-center": [ "clock" ],
+    "modules-right": [ "backlight", "pulseaudio", "pulseaudio#microphone", "cpu", "memory", "battery", "network", "tray" ],
+
+    "niri/workspaces": {
+        "format": "{index}"
+    },
+
+    "backlight": {
+        "device": "amdgpu_bl1", // Updated for your hardware
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󱐋 {icon} {capacity}%", // The "Charging" look
+        "format-plugged": " {capacity}%",     // The "Full/Plugged" look
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 ",
+        "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
+        "on-click": "pavucontrol"
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " ",
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5"
+    },
+
+    "network": {
+        "format-wifi": "󰤨 {essid}",
+        "format-ethernet": "󰈀 ",
+        "format-disconnected": "󰖪 "
+    },
+
+    "clock": { "format": "󱑂 {:%H:%M}" },
+    "cpu": { "format": " {usage}%" },
+    "memory": { "format": " {percentage}%" },
+    "tray": { "spacing": 8, "icon-size": 15 }
+}

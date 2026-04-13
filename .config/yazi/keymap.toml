@@ -1,0 +1,4 @@
+[[manager.prepend_keymap]]
+on   = [ "<C-d>" ]
+run  = 'shell "ripdrag \"$@\"" --confirm'
+desc = "Drag and drop selected files via ripdrag"

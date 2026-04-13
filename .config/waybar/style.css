@@ -1,0 +1,38 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font";
+    font-weight: bold;
+}
+
+window#waybar {
+    background: rgba(10, 10, 10, 0.9);
+    color: #d1d1d1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#workspaces, #window, #clock, #cpu, #memory, #battery, #network, #tray, #pulseaudio, #backlight {
+    padding: 0 10px;
+}
+
+#battery.charging {
+    color: #e0af68; /* TokyoNight yellow/orange for charging */
+}
+
+#battery.critical:not(.charging) {
+    color: #f7768e;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to { background-color: #f7768e; color: #ffffff; }
+}
+
+#workspaces button { color: #555555; }
+#workspaces button.focused { color: #d1d1d1; border-bottom: 2px solid #d1d1d1; }
+#network { color: #a9b1d6; }
+#battery { color: #9ece6a; }
+#pulseaudio { color: #f7768e; }
+#backlight { color: #e0af68; }

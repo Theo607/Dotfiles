@@ -1,0 +1,58 @@
+return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    event = "BufRead",
+    branch = "main",
+    build = ":TSUpdate",
+    ---@class TSConfig
+    opts = {
+      -- custom handling of parsers
+      ensure_installed = {
+        "astro",
+        "bash",
+        "c",
+        "cpp",
+        "css",
+        "diff",
+        "go",
+        "gomod",
+        "gowork",
+        "gosum",
+        "graphql",
+        "html",
+        "java",
+        "javascript",
+        "jsdoc",
+        "json",
+        "lua",
+        "luadoc",
+        "luap",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "query",
+        "regex",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "vimdoc",
+        "yaml",
+        "ruby",
+        "zig",
+      },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = "BufRead",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      event = "BufRead",
+    },
+    opts = {
+      multiwindow = true,
+    },
+  },
+}

@@ -1,0 +1,104 @@
+input {
+    keyboard {
+        xkb {
+            layout "pl"
+        }
+    }
+    touchpad {
+        tap
+        dwt
+    }
+}
+
+layout {
+    gaps 12
+    default-column-width { proportion 0.5; }
+    background-color "transparent"
+
+
+    border {
+        width 1
+        active-color "#d1d1d1"
+        inactive-color "#333333"
+    }
+    
+    focus-ring {
+        width 1
+        active-color "#d1d1d1"
+        inactive-color "#333333"
+    }
+}
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+prefer-no-csd 
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "waybar"
+spawn-at-startup "mako"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "waypaper" "--restore"
+
+binds {
+    Mod+T { spawn "ghostty"; }
+    Mod+D { spawn "rofi" "-show" "drun"; }
+    Mod+Q { close-window; }
+    Mod+Tab { toggle-overview; }
+    Mod+Shift+E { quit; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    Mod+C { center-column; }
+
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Down  { focus-window-or-workspace-down; }
+    Mod+Up    { focus-window-or-workspace-up; }
+    
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+    
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    Mod+Shift+J { consume-or-expel-window-left; }
+    
+    Mod+Shift+L { consume-or-expel-window-right; } 
+    Mod+L allow-when-locked=true { 
+        spawn "swaylock" "-S" "--clock" "--indicator" "--indicator-radius" "100" "--indicator-thickness" "7" "--effect-blur" "7x5" "--ring-color" "ffffff" "--key-hl-color" "e6db74" "--inside-color" "00000088" "--separator-color" "00000000" "--ring-ver-color" "00000000" "--ring-wrong-color" "e6db74" "--text-ver-color" "00000000" "--text-wrong-color" "00000000" "--inside-ver-color" "00000000" "--inside-wrong-color" "00000088"
+    }
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
