@@ -24,5 +24,16 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.termguicolors = true
 vim.opt.fillchars = vim.opt.fillchars + { eob = " " }
 
-require("core.keymaps")
+
+require("keymaps")
+-- vim.keymap.set("v", "<", "<gv", opts)
+-- vim.keymap.set("v", ">", ">gv", opts)
+--
+-- vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+-- vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+--
+-- vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {
+--     desc = "Show diagnostics under cursor",
+-- })
+
 require("plugins")

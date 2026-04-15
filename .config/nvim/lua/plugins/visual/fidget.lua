@@ -1,28 +1,21 @@
--- lua/plugins/fidget.lua
 return {
     "j-hui/fidget.nvim",
-    tag = "legacy",  -- optional, pick latest stable
-    config = function()
-        require("fidget").setup({
-            text = {
-                spinner = "dots",  -- options: 'dots', 'line', etc.
-                done = "✔",
-                commenced = "Started",
-                completed = "Completed",
+    opts = {
+        progress = {
+            poll_rate = 0,              
+            suppress_on_insert = true, 
+            display = {
+                render_limit = 16,        
+                done_icon = "󰄬",         
+                done_style = "GruvboxGreen",
+                progress_style = "GruvboxAqua",
             },
-            align = {
-                bottom = true,
-                right = true,
-            },
+        },
+        notification = {
             window = {
-                blend = 0,
+                winblend = 0,             
+                relative = "editor",     
             },
-            fmt = {
-                task = function(task_name, message, percentage)
-                    return string.format("%s: %s [%s]", task_name, message, percentage or 0)
-                end,
-            },
-        })
-    end,
+        },
+    },
 }
-

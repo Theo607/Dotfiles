@@ -1,26 +1,27 @@
--- lua/plugins/illuminate.lua
 return {
     "RRethy/vim-illuminate",
-    event = "BufReadPost", -- lazy load
+    event = { "BufReadPost", "BufNewFile" },
     config = function()
         require("illuminate").configure({
-            delay = 100,           -- delay in ms before highlighting
-            filetypes_denylist = { -- optionally disable for some filetypes
+            delay = 200,
+            filetypes_denylist = {
                 "NvimTree",
                 "dashboard",
-                "packer",
+                "alpha",
                 "oil",
+                "lazy",
+                "TelescopePrompt",
             },
-            under_cursor = true, -- highlight word under cursor
+            under_cursor = true,
+            large_file_cutoff = 2000,
         })
 
-        -- Optional keymaps to jump between references
-        vim.keymap.set("n", "]i", function()
-            require("illuminate").goto_next_reference()
-        end, { desc = "Next occurrence" })
+        local function set_illuminate_hl()
+            vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
+            vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
+            vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { underline = true, fg = "#fabd2f" }) -- GruvboxYellow
+        end
 
-        vim.keymap.set("n", "[i", function()
-            require("illuminate").goto_prev_reference()
-        end, { desc = "Previous occurrence" })
+        set_illuminate_hl()
     end,
 }

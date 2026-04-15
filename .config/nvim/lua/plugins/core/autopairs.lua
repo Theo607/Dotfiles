@@ -1,10 +1,9 @@
--- lua/plugins/autopairs.lua
 return {
     "windwp/nvim-autopairs",
     config = function()
         local npairs = require("nvim-autopairs")
         npairs.setup({
-            check_ts = true,          -- use Treesitter to avoid closing in comments/strings
+            check_ts = true,          
             enable_check_bracket_line = true,
             disable_filetype = { "TelescopePrompt", "vim" },
         })
