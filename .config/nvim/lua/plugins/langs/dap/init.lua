@@ -7,9 +7,9 @@ return {
         "jay-babu/mason-nvim-dap.nvim",
     },
     config = function()
-        require("plugins.dap.adapters")
-        require("plugins.dap.ui")
-        require("plugins.dap.keymaps")
-        require("plugins.dap.virtual_text")
+        require("plugins.langs.dap.adapters")
+        require("plugins.langs.dap.ui")
+        require("plugins.langs.dap.keymaps")
+        require("plugins.langs.dap.virtual_text")
     end,
 }

@@ -27,7 +27,7 @@ return {
 
         -- Buffer-local keymaps
         local on_attach = function(_, bufnr)
-            require("plugins.lsp.keymaps").setup(bufnr)
+            require("plugins.langs.lsp.keymaps").setup(bufnr)
         end
 
         -- Define server configurations

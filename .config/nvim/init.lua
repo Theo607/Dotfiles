@@ -19,7 +19,6 @@ vim.opt.smartcase = true
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
 
--- Clipboard
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.termguicolors = true
