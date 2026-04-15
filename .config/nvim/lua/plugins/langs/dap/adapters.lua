@@ -1,78 +1,69 @@
-local dap = require("dap")
+return {
+  "mfussenegger/nvim-dap",
+  dependencies = {
+    "jay-babu/mason-nvim-dap.nvim",
+    "williamboman/mason.nvim",
+  },
+  config = function()
+    local dap = require("dap")
+    local mason_dap = require("mason-nvim-dap")
 
--- Mason installs adapters
-require("mason-nvim-dap").setup({
-    ensure_installed = {
-        "codelldb",  -- C/C++
-        "python",    -- Python
-    },
-    automatic_installation = true,
-})
+    -- 1. Bridge Mason and DAP
+    mason_dap.setup({
+      ensure_installed = { "codelldb", "python" },
+      automatic_installation = true,
+      handlers = {}, -- Uses default lspconfig-style handshakes
+    })
 
--- C / C++ (LLDB)
-dap.adapters.codelldb = {
-    type = "server",
-    port = "${port}",
-    executable = {
+    -- 2. C / C++ / Rust / ASM (via codelldb)
+    dap.adapters.codelldb = {
+      type = "server",
+      port = "${port}",
+      executable = {
         command = "codelldb",
         args = { "--port", "${port}" },
-    },
-}
+      },
+    }
 
-dap.configurations.cpp = {
-    {
-        name = "Launch file",
+    local lldb_config = {
+      {
+        name = "Launch Binary",
         type = "codelldb",
         request = "launch",
         program = function()
-            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
         end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
-    },
-}
+      },
+    }
 
-dap.configurations.c = dap.configurations.cpp
+    dap.configurations.cpp = lldb_config
+    dap.configurations.c = lldb_config
+    dap.configurations.rust = lldb_config
+    dap.configurations.asm = lldb_config -- Great for your NASM work
 
--- Python
-dap.adapters.python = {
-    type = "executable",
-    command = "python",
-    args = { "-m", "debugpy.adapter" },
-}
+    -- 3. Python (Debugpy)
+    dap.adapters.python = {
+      type = "executable",
+      command = "python",
+      args = { "-m", "debugpy.adapter" },
+    }
 
-dap.configurations.python = {
-    {
+    dap.configurations.python = {
+      {
         type = "python",
         request = "launch",
-        name = "Launch file",
+        name = "Launch current file",
         program = "${file}",
         pythonPath = function()
-            return "python"
+          return "python"
         end,
-    },
-}
-dap.adapters.nasm = {
-    type = "server",
-    port = "${port}",
-    executable = {
-        command = "codelldb",
-        args = { "--port", "${port}" },
+      },
     }
+
+    -- 4. Aesthetic: Rounded borders for DAP UI elements
+    vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DiagnosticError", linehl = "", numhl = "" })
+    vim.fn.sign_define("DapStopped", { text = "▶", texthl = "DiagnosticWarn", linehl = "Visual", numhl = "" })
+  end,
 }
-
-dap.configurations.asm = {
-    {
-        name = "Debug NASM with codelldb",
-        type = "nasm",
-        request = "launch",
-        program = function()
-            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-        end,
-        cwd = "${workspaceFolder}",
-        stopOnEntry = true,
-        args = {},
-    },
-}
-
-

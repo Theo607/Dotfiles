@@ -1,12 +1,11 @@
 return {
-  "alvan/vim-closetag",
-  event = "InsertEnter",
-  config = function()
-    vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.tsx"
-    vim.g.closetag_xhtml_filenames = "*.xhtml,*.jsx,*.tsx"
-    vim.g.closetag_filetypes = "html,xhtml,phtml,jsx,tsx"
-    vim.g.closetag_emptyTags_caseSensitive = 1
-    vim.g.closetag_shortcut = ">;," -- optional
-  end,
+    "windwp/nvim-ts-autotag",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+        opts = {
+            enable_close = true,
+            enable_rename = true,
+            enable_close_on_slash = true,
+        },
+    },
 }
-

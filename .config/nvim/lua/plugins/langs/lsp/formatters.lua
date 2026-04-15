@@ -37,26 +37,23 @@ return {
       s = { "astyle" },
       sql = { "sql_formatter" },
     },
-    -- Auto-format on save
     format_on_save = {
       timeout_ms = 500,
       lsp_fallback = true,
     },
-    -- Customizing formatters to match your null-ls extra_args
     formatters = {
       prettierd = {
         env = {
           PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.config/nvim/.prettierrc.json"),
         },
-        -- Dynamically pass shiftwidth like your null-ls setup
         args = function()
-          local sw = tostring(vim.opt.shiftwidth:get())
+          local sw = tostring(vim.bo.shiftwidth) -- Use bo (buffer-local) for current file
           return { "$FILENAME", "--tab-width", sw, "--use-tabs", "false" }
         end,
       },
       stylua = {
         args = function()
-          local sw = tostring(vim.opt.shiftwidth:get())
+          local sw = tostring(vim.bo.shiftwidth)
           return { "--indent-width", sw, "-" }
         end,
       },

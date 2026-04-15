@@ -9,7 +9,6 @@ return {
     config = function()
         require("plugins.langs.dap.adapters")
         require("plugins.langs.dap.ui")
-        require("plugins.langs.dap.keymaps")
         require("plugins.langs.dap.virtual_text")
     end,
 }

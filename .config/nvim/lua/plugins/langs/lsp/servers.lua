@@ -1,72 +1,55 @@
 return {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-    },
-    config = function()
-        local mason_lsp = require("mason-lspconfig")
+  "neovim/nvim-lspconfig",
+  dependencies = {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "hrsh7th/cmp-nvim-lsp",
+  },
+  config = function()
+    local mason = require("mason")
+    local mason_lspconfig = require("mason-lspconfig")
+    local cmp_lsp = require("cmp_nvim_lsp")
 
-        -- Mason: install servers automatically
-        mason_lsp.setup({
-            ensure_installed = {
-                "clangd",
-                "lua_ls",
-                "pyright",
-                "bashls",
-                "ts_ls",
-                "jsonls",
-                "yamlls",
-                "rust_analyzer",
-            },
-            automatic_installation = true,
-        })
+    mason.setup({ ui = { border = "rounded" } })
 
-        -- Common LSP capabilities
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-        -- Buffer-local keymaps
-        local on_attach = function(_, bufnr)
-            require("plugins.langs.lsp.keymaps").setup(bufnr)
-        end
-
-        -- Define server configurations
-        local servers = {
-            clangd = {
-                cmd = { "clangd", "--background-index" },
-                filetypes = { "c", "cpp" },
-            },
-            lua_ls = {
-                settings = {
-                    Lua = {
-                        diagnostics = { globals = { "vim" } },
-                        workspace = {
-                            library = vim.api.nvim_get_runtime_file("", true),
-                            checkThirdParty = false,
-                        },
-                        telemetry = { enable = false },
-                    },
-                },
-            },
-            pyright = {},
-            bashls = {},
-            ts_ls = {},
-            jsonls = {},
-            yamlls = {},
-            rust_analyzer = {},
+    -- The servers we want to manage
+    local servers = {
+      clangd = { cmd = { "clangd", "--background-index" } },
+      lua_ls = {
+        settings = {
+          Lua = { diagnostics = { globals = { "vim" } } }
         }
+      },
+      pyright = {},
+      bashls = {},
+      ts_ls = {},
+      jsonls = {},
+      yamlls = {},
+      rust_analyzer = {},
+    }
 
-        -- Configure and enable each server using the new API
-        for name, config in pairs(servers) do
-            config.on_attach = on_attach
-            config.capabilities = capabilities
+    mason_lspconfig.setup({
+      ensure_installed = vim.tbl_keys(servers),
+      automatic_installation = true,
+    })
 
-            -- Define the config
-            vim.lsp.config(name, config)
+    local capabilities = cmp_lsp.default_capabilities()
 
-            -- Enable the server for matching buffers
-            vim.lsp.enable(name)
-        end
-    end,
+    -- NEVIM 0.11+ NATIVE WAY:
+    for name, config in pairs(servers) do
+      -- 1. Create the config using the new native API
+      vim.lsp.config(name, {
+        cmd = config.cmd,
+        settings = config.settings,
+        capabilities = capabilities,
+        filetypes = config.filetypes,
+      })
+
+      -- 2. Enable it (This replaces .setup())
+      vim.lsp.enable(name)
+    end
+
+    -- Polish for the LSP UI
+    require('lspconfig.ui.windows').default_options.border = 'rounded'
+  end,
 }
-

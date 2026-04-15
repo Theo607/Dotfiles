@@ -24,6 +24,9 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.termguicolors = true
 vim.opt.fillchars = vim.opt.fillchars + { eob = " " }
 
+if vim.loader then
+  vim.loader.enable()
+end
 
 require("keymaps")
 -- vim.keymap.set("v", "<", "<gv", opts)

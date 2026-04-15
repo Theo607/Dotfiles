@@ -1,28 +1,27 @@
 return {
     "stevearc/dressing.nvim",
-    config = function()
-        require("dressing").setup({
-            input = {
-                enabled = true,
-                default_prompt = "➤ ",
-                insert_only = false,
+    event = "VeryLazy",
+    opts = {
+        input = {
+            enabled = true,
+            default_prompt = "  ", 
+            trim_prompt = true,
+            start_in_insert = true,
+            win_options = {
+                winblend = 0, 
+                winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+            },
+            relative = "cursor", 
+        },
+        select = {
+            enabled = true,
+            backend = { "telescope", "fzf_lua", "builtin" },
+            builtin = {
                 win_options = {
-                    winblend = 10,
-                    winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+                    winblend = 0, 
+                    winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
                 },
             },
-            select = {
-                enabled = true,
-                backend = { "telescope", "fzf_lua", "builtin" },
-                telescope = nil, -- use default telescope options
-                builtin = {
-                    win_options = {
-                        winblend = 10,
-                        winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
-                    },
-                },
-            },
-        })
-    end,
+        },
+    },
 }
-
