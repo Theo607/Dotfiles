@@ -26,6 +26,11 @@ window#waybar {
     animation-direction: alternate;
 }
 
+#custom-power_profile {
+    color: #e6db74;
+    padding: 0 10px;
+}
+
 @keyframes blink {
     to { background-color: #f7768e; color: #ffffff; }
 }

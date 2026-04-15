@@ -3,8 +3,7 @@
     "position": "top",
     "modules-left": [ "niri/workspaces", "niri/window" ],
     "modules-center": [ "clock" ],
-    "modules-right": [ "backlight", "pulseaudio", "pulseaudio#microphone", "cpu", "memory", "battery", "network", "tray" ],
-
+"modules-right": [ "backlight", "pulseaudio", "pulseaudio#microphone", "cpu", "memory", "custom/power_profile", "battery", "network", "tray" ],
     "niri/workspaces": {
         "format": "{index}"
     },
@@ -28,6 +27,14 @@
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
+    "custom/power_profile": {
+        "exec": "powerprofilesctl get",
+        "interval": 30,
+        "format": "󰈐 {}",
+        "on-click": "bash -c 'case $(powerprofilesctl get) in balanced) powerprofilesctl set power-saver;; power-saver) powerprofilesctl set balanced;; esac' && pkill -RTMIN+8 waybar",
+        "signal": 8,
+        "tooltip": true
+    },
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": "󰝟 ",

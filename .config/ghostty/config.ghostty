@@ -1,6 +1,5 @@
-theme = Kanagawa Wave
+theme = Gruvbox Dark Hard
 cursor-style = underline
-font-family = Iosevka
-font-size = 14
+font-family = FiraCode Nerd Font
 background-opacity = 0.75
 background-blur-radius = 20
