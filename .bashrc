@@ -9,6 +9,10 @@ alias la="ls -la"
 alias ..="cd .."
 alias ...="cd ../.."
 
-# Progs
+alias ga="git add"
+alias gcm="git commit -m"
+alias gp="git push"
+alias gpo="git push origin"
+
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"

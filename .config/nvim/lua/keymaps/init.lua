@@ -71,6 +71,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show Diagnostic Error" })
+
 -- --- DAP (Debug) - Wrapped in functions to prevent startup errors ---
 local dap_map = function(mode, lhs, rhs, desc)
   map(mode, lhs, function() 
