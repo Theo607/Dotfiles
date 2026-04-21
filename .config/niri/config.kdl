@@ -96,6 +96,15 @@ binds {
     Mod+L allow-when-locked=true { 
         spawn "swaylock" "-S" "--clock" "--indicator" "--indicator-radius" "100" "--indicator-thickness" "7" "--effect-blur" "7x5" "--ring-color" "ffffff" "--key-hl-color" "e6db74" "--inside-color" "00000088" "--separator-color" "00000000" "--ring-ver-color" "00000000" "--ring-wrong-color" "e6db74" "--text-ver-color" "00000000" "--text-wrong-color" "00000000" "--inside-ver-color" "00000000" "--inside-wrong-color" "00000088"
     }
+
+    Mod+Alt+Left  { focus-monitor-left; }
+    Mod+Alt+Right { focus-monitor-right; }
+    
+    Mod+Alt+Up    { focus-monitor-up; }
+    Mod+Alt+Down  { focus-monitor-down; }
+
+    Mod+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Ctrl+Right { move-column-to-monitor-right; }
 }
 
 hotkey-overlay {
