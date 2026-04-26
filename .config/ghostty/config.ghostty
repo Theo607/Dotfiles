@@ -1,5 +1,5 @@
-theme = Gruvbox Dark Hard
+theme = Gruvbox Dark 
 cursor-style = underline
 font-family = FiraCode Nerd Font
-background-opacity = 0.75
-background-blur-radius = 20
+# background-opacity = 0.75
+# background-blur-radius = 20

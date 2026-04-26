@@ -21,11 +21,12 @@ archiver = [
     { run = '7zz x "$@"', block = true, desc = "Extract here (7zip)" }
 ]
 pdf_reader = [
-    { run = 'papers "$@"', orphan = true, desc = "Papers" }
+    { run = 'papers "$@"', orphan = true, desc = "Okular" }
 ]
 
 [open]
 prepend_rules = [
+    { mime = "inode/x-empty", use = "editor" },
     # Code & Configs
     { name = "*.{sh,bash,zsh,fish,lua,nix,conf,ini,toml,yaml,yml,json}", use = "editor" },
     { name = "*.{c,cpp,h,hpp,rs,go,py,js,ts,jsx,tsx,html,css,scss,md,sql}", use = "editor" },
