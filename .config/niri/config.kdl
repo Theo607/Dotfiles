@@ -105,6 +105,10 @@ binds {
 
     Mod+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Ctrl+Right { move-column-to-monitor-right; }
+
+    Mod+Shift+S {
+	spawn "sh" "-c" "grim -g \"$(slurp)\" - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
+    }
 }
 
 hotkey-overlay {

@@ -31,3 +31,4 @@ local function yazi_picker()
 end
 
 vim.keymap.set("n", "<leader>y", yazi_picker, { desc = "Yazi File Picker" })
+vim.keymap.set("n", "<leader>ct", ":NoNeckPain<CR>:NoNeckPainResize 80<CR>")

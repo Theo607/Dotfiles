@@ -43,3 +43,6 @@ eval "$(starship init bash)"
 
 export BROWSER=firefox
 export EDITOR="nvim"
+
+alias blue=bluetuith
+alias wifi=nmtui
