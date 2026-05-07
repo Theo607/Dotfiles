@@ -1,3 +1,5 @@
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 vim.lsp.config('clangd', {
   cmd = { 'clangd' },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
@@ -6,6 +8,7 @@ vim.lsp.config('clangd', {
     'compile_flags.txt',
     '.git',
   },
+  capabilities = capabilities,
 })
 
 vim.lsp.enable('clangd')
