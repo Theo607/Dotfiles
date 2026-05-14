@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.opt.shada = "'50,<1000,%,n~/nvim_shada"
+vim.opt.shada = "'50,<1000,%,n~/.local/share/nvim/nvim_shada"
 vim.opt.clipboard = 'unnamedplus'
 
 vim.opt.number = true
