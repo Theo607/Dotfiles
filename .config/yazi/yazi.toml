@@ -4,6 +4,14 @@ sort_sensitive = false
 sort_reverse   = false
 sort_dir_first = true
 
+[preview]
+# If you are using Kitty, change this to "kitty"
+# If you are using Foot or another terminal with Sixel capabilities, use "sixel"
+image_protocol = "sixel"
+max_width      = 1920
+max_height     = 1080
+cache_dir      = ""
+
 [opener]
 editor = [
     { run = 'nvim "$@"', block = true, desc = "Neovim" }
@@ -21,37 +29,37 @@ archiver = [
     { run = '7zz x "$@"', block = true, desc = "Extract here (7zip)" }
 ]
 pdf_reader = [
-    { run = 'papers "$@"', orphan = true, desc = "Okular" }
+    { run = 'papers "$@"', orphan = true, desc = "Papers" }
 ]
 
 [open]
 prepend_rules = [
     { mime = "inode/x-empty", use = "editor" },
     # Code & Configs
-    { name = "*.{sh,bash,zsh,fish,lua,nix,conf,ini,toml,yaml,yml,json}", use = "editor" },
-    { name = "*.{c,cpp,h,hpp,rs,go,py,js,ts,jsx,tsx,html,css,scss,md,sql}", use = "editor" },
+    { url = "*.{sh,bash,zsh,fish,lua,nix,conf,ini,toml,yaml,yml,json}", use = "editor" },
+    { url = "*.{c,cpp,h,hpp,rs,go,py,js,ts,jsx,tsx,html,css,scss,md,sql}", use = "editor" },
     { mime = "text/*", use = "editor" },
 
     # Office Documents
     { mime = "application/vnd.openxmlformats-officedocument.*", use = "office" },
     { mime = "application/vnd.ms-*", use = "office" },
     { mime = "application/vnd.oasis.opendocument.*", use = "office" },
-    { name = "*.{doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp,rtf}", use = "office" },
+    { url = "*.{doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp,rtf}", use = "office" },
 
     # Archives
     { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd}", use = "archiver" },
-    { name = "*.{zip,7z,tar,gz,tgz,xz,rar,zipx}", use = "archiver" },
+    { url = "*.{zip,7z,tar,gz,tgz,xz,rar,zipx}", use = "archiver" },
 
     # Media & Images
     { mime = "video/*", use = "media_player" },
     { mime = "audio/*", use = "media_player" },
     { mime = "image/*", use = "image_viewer" },
-    { name = "*.svg", use = "image_viewer" },
+    { url = "*.svg", use = "image_viewer" },
 
     # Documents
     { mime = "application/pdf", use = "pdf_reader" },
 
     # Misc
-    { name = "*.{db,sqlite,sqlite3}", use = "editor" },
-    { name = "*.log", use = "editor" }
+    { url = "*.{db,sqlite,sqlite3}", use = "editor" },
+    { url = "*.log", use = "editor" }
 ]

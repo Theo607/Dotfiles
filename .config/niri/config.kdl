@@ -115,3 +115,15 @@ hotkey-overlay {
     skip-at-startup
 }
 
+// Lenovo Laptop Screen (Left Side)
+output "eDP-1" {
+    position x=0 y=0
+    scale 1.25
+}
+
+// LG Ultrawide Monitor (Right Side)
+output "HDMI-A-1" {
+    position x=1536 y=0
+    scale 1.0
+}
+

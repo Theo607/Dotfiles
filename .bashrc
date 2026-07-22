@@ -1,4 +1,5 @@
 alias nv=nvim
+alias hx=helix
 
 nvf() {
   local files
@@ -46,3 +47,25 @@ export EDITOR="nvim"
 
 alias blue=bluetuith
 alias wifi=nmtui
+
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+export GOPATH="$HOME/.local/share/go"
+export PATH="$GOPATH/bin:$PATH"
+export GOBIN="$HOME/.local/bin"
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+
+
+[ -f "/home/theo/.ghcup/env" ] && . "/home/theo/.ghcup/env" # ghcup-env
+export PATH="/home/theo/.cargo/bin:$PATH"
+export PATH="$PATH:/home/theo/.local/bin"
