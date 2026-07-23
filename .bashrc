@@ -28,8 +28,16 @@ alias top=btop
 alias ush="source ~/.bashrc"
 alias bc="bc -ql"
 
-alias l="ls -lh"
-alias la="ls -lha"
+# Modern CLI tool aliases
+alias ls="eza --icons=always --group-directories-first"
+alias l="eza -lh --icons=always --git --group-directories-first"
+alias la="eza -lha --icons=always --git --group-directories-first"
+alias tree="eza --tree --icons=always"
+alias cat="bat --paging=never"
+alias find="fd"
+alias lg="lazygit"
+alias tokens="python3 /home/theo/Dotfiles/check_tokens.py"
+alias dots-help="python3 /home/theo/Dotfiles/dots_help.py"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -41,6 +49,8 @@ alias gpo="git push origin"
 
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
+
+alias zi="cd \$(zoxide query -i)"
 
 export BROWSER=firefox
 export EDITOR="nvim"
@@ -69,3 +79,7 @@ function y() {
 [ -f "/home/theo/.ghcup/env" ] && . "/home/theo/.ghcup/env" # ghcup-env
 export PATH="/home/theo/.cargo/bin:$PATH"
 export PATH="$PATH:/home/theo/.local/bin"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/theo/.local/bin:$PATH"

@@ -1,9 +1,6 @@
+@import "colors.rasi"
+
 * {
-    bg: #0a0a0a;
-    fg: #d1d1d1;
-    accent: #333333;
-    border-col: #d1d1d133;
-    
     background-color: transparent;
     text-color: @fg;
     font: "JetBrainsMono Nerd Font 11";
@@ -13,7 +10,7 @@ window {
     background-color: @bg;
     border: 1px;
     border-color: @border-col;
-    border-radius: 12px;
+    border-radius: 14px;
     width: 600px;
     padding: 20px;
 }
@@ -26,20 +23,23 @@ mainbox {
 inputbar {
     children: [prompt, entry];
     spacing: 10px;
-    margin: 0px 0px 10px 0px;
-    padding: 5px;
+    margin: 0px 0px 14px 0px;
+    padding: 8px;
+    background-color: @bg-alt;
+    border-radius: 8px;
 }
 
 prompt {
     background-color: @accent;
-    padding: 6px;
-    text-color: @fg;
+    padding: 6px 12px;
+    text-color: @bg;
     border-radius: 6px;
+    font: "JetBrainsMono Nerd Font Bold 11";
 }
 
 entry {
-    placeholder: "Search apps...";
-    placeholder-color: #666666;
+    placeholder: "Search...";
+    placeholder-color: @fg;
     vertical-align: 0.5;
 }
 
@@ -47,18 +47,20 @@ listview {
     lines: 8;
     columns: 1;
     fixed-height: true;
-    spacing: 5px;
+    spacing: 6px;
 }
 
 element {
-    padding: 8px;
-    border-radius: 6px;
+    padding: 8px 12px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
 element selected {
-    background-color: @accent;
+    background-color: @bg-alt;
     text-color: @fg;
+    border: 1px;
+    border-color: @accent;
 }
 
 element-icon {

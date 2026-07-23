@@ -13,4 +13,4 @@ configuration {
     sidebar-mode: true;
 }
 
-@theme "style"
+@theme "~/.config/rofi/style.rasi"

@@ -17,7 +17,8 @@ set_values(vim.g, require(globs))
 require(enter).run()
 
 require("config.lazy")
+pcall(require, theme)
 require(keys)
 require("lualine").setup({
-    options = { theme = "codedark", },
+    options = { theme = "auto", },
 })

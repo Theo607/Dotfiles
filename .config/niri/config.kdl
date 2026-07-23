@@ -18,14 +18,14 @@ layout {
 
     border {
         width 1
-        active-color "#d1d1d1"
-        inactive-color "#333333"
+        active-color "transparent"
+        inactive-color "transparent"
     }
     
     focus-ring {
-        width 1
-        active-color "#d1d1d1"
-        inactive-color "#333333"
+        width 3
+        active-color "#d1c979aa"
+        inactive-color "transparent"
     }
 }
 
@@ -38,12 +38,17 @@ prefer-no-csd
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
 spawn-at-startup "mako"
-spawn-at-startup "xwayland-satellite"
-spawn-at-startup "waypaper" "--restore"
+spawn-at-startup "swaybg" "-i" "/home/theo/Dotfiles/Wallpapers/wallhaven-5ymj95.jpg"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 
 binds {
     Mod+T { spawn "ghostty"; }
     Mod+D { spawn "rofi" "-show" "drun"; }
+    Mod+W { spawn "~/.config/rofi/wallpaper_picker.sh"; }
+    Mod+V { spawn "~/.config/rofi/cliphist.sh"; }
+    Mod+Shift+P { spawn "~/.config/rofi/powermenu.sh"; }
+    Mod+0 { spawn "~/.config/rofi/powermenu.sh"; }
     Mod+Q { close-window; }
     Mod+Tab { toggle-overview; }
     Mod+Shift+E { quit; }

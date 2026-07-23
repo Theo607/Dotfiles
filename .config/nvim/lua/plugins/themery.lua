@@ -10,6 +10,7 @@ return {
 		config = function()
 			require("themery").setup({
 				themes = {
+					{ name = "Hex Lavender", colorscheme = "hex-lavender" },
 					{ name = "Catppuccin Mocha", colorscheme = "catppuccin-mocha" },
 					{ name = "Catppuccin Frappe", colorscheme = "catppuccin-frappe" },
 					{ name = "Tokyo Night", colorscheme = "tokyonight-storm" },

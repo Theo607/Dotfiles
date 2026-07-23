@@ -1,0 +1,8 @@
+/* Generated dynamically from wallpaper */
+* {
+    bg: #1b211c;
+    bg-alt: #283029;
+    fg: #c5d6c7;
+    accent: #d1c979;
+    border-col: #595742;
+}

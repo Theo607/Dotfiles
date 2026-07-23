@@ -1,15 +1,31 @@
 {
     "layer": "top",
     "position": "top",
+    "height": 36,
+    "margin-top": 4,
+    "margin-left": 8,
+    "margin-right": 8,
+
     "modules-left": [ "niri/workspaces", "niri/window" ],
-    "modules-center": [ "clock" ],
-"modules-right": [ "backlight", "pulseaudio", "pulseaudio#microphone", "cpu", "memory", "custom/power_profile", "battery", "network", "tray" ],
+    "modules-center": [ "custom/weather", "clock" ],
+    "modules-right": [ "backlight", "pulseaudio", "pulseaudio#microphone", "group/hardware", "custom/power_profile", "custom/network", "tray" ],
+
     "niri/workspaces": {
         "format": "{index}"
     },
 
+    "niri/window": {
+        "max-length": 25,
+        "separate-outputs": true
+    },
+
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [ "cpu", "memory", "battery" ]
+    },
+
     "backlight": {
-        "device": "amdgpu_bl1", // Updated for your hardware
+        "device": "amdgpu_bl1",
         "format": "{icon} {percent}%",
         "format-icons": ["󰃞", "󰃟", "󰃠"],
         "on-scroll-up": "brightnessctl set 5%+",
@@ -22,8 +38,8 @@
             "critical": 15
         },
         "format": "{icon} {capacity}%",
-        "format-charging": "󱐋 {icon} {capacity}%", // The "Charging" look
-        "format-plugged": " {capacity}%",     // The "Full/Plugged" look
+        "format-charging": "󱐋 {icon} {capacity}%",
+        "format-plugged": " {capacity}%",
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
@@ -35,6 +51,7 @@
         "signal": 8,
         "tooltip": true
     },
+
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": "󰝟 ",
@@ -51,13 +68,26 @@
         "on-scroll-down": "pamixer --default-source -d 5"
     },
 
-    "network": {
-        "format-wifi": "󰤨 {essid}",
-        "format-ethernet": "󰈀 ",
-        "format-disconnected": "󰖪 "
+    "custom/network": {
+        "format": "{}",
+        "exec": "$HOME/.config/waybar/scripts/wifi_scroll.py",
+        "return-type": "json",
+        "tooltip": true
     },
 
-    "clock": { "format": "󱑂 {:%H:%M}" },
+    "clock": {
+        "format": "󰃭 {:%a, %b %d  󱑂 %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 1800,
+        "exec": "$HOME/.config/waybar/scripts/weather.py",
+        "return-type": "json"
+    },
+
     "cpu": { "format": " {usage}%" },
     "memory": { "format": " {percentage}%" },
     "tray": { "spacing": 8, "icon-size": 15 }

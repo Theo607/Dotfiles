@@ -1,0 +1,15 @@
+themes {
+    dynamic {
+        fg "#c5d6c7"
+        bg "#1b211c"
+        black "#1b211c"
+        red "#d16c78"
+        green "#7bc682"
+        yellow "#d1b879"
+        blue "#81a1d1"
+        magenta "#b479d1"
+        cyan "#7ecccc"
+        white "#ffffff"
+        orange "#d1c979"
+    }
+}

@@ -299,9 +299,9 @@ web_client {
 // osc8_hyperlinks true
  
 // Choose the theme that is specified in the themes section.
-// Default: default
-// 
-theme "kanagawa"
+// Theme defines color palette for zellij.
+//
+theme "dynamic"
  
 // Choose the base input mode of zellij.
 // Default: normal
@@ -572,3 +572,19 @@ show_startup_tips false
 // typically work best. Set to 0 to use the number of (physical) CPU cores.
 // Note: This only applies to web clients at the moment.
 // client_async_worker_tasks 4
+
+themes {
+    dynamic {
+        fg "#c5d6c7"
+        bg "#1b211c"
+        black "#1b211c"
+        red "#d16c78"
+        green "#7bc682"
+        yellow "#d1b879"
+        blue "#81a1d1"
+        magenta "#b479d1"
+        cyan "#7ecccc"
+        white "#ffffff"
+        orange "#d1c979"
+    }
+}
