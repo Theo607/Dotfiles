@@ -35,7 +35,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="ghostty-scratchpad"
+    match title="ghostty-scratchpad"
     open-floating true
     default-column-width { proportion 0.65; }
     default-window-height { proportion 0.65; }
@@ -51,7 +51,7 @@ spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 
 binds {
     Mod+T { spawn "ghostty"; }
-    Mod+Shift+T { spawn "ghostty" "--class=ghostty-scratchpad"; }
+    Mod+Shift+T { spawn "ghostty" "--title=ghostty-scratchpad"; }
     Mod+D { spawn "rofi" "-show" "drun"; }
     Mod+W { spawn "~/.config/rofi/wallpaper_picker.sh"; }
     Mod+V { spawn "~/.config/rofi/cliphist.sh"; }
