@@ -32,6 +32,7 @@ A sleek, modern, dynamic Wayland desktop environment powered by **Niri** (scroll
 | Keybinding | Action | Description |
 | :--- | :--- | :--- |
 | `Mod + T` | Terminal | Launch **Ghostty** terminal emulator |
+| `Mod + Shift + T` | Scratchpad | Open floating scratchpad Ghostty terminal |
 | `Mod + D` | Launcher | Launch **Rofi** application menu |
 | `Mod + W` | Wallpaper Picker | Select wallpaper & auto-generate dynamic theme |
 | `Mod + V` | Clipboard History | Open **Cliphist** clipboard history menu |

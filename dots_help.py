@@ -55,6 +55,7 @@ CHEATSHEET = [
         "color": MAGENTA,
         "items": [
             ("Mod + T", "Ghostty", "Open terminal emulator"),
+            ("Mod + Shift + T", "Floating Terminal", "Open centered floating scratchpad terminal"),
             ("Mod + D", "Rofi", "Application launcher"),
             ("Mod + W", "Wallpaper Picker", "Select wallpaper & generate dynamic theme"),
             ("Mod + V", "Cliphist + Rofi", "Open persistent clipboard history menu"),
