@@ -1,4 +1,4 @@
-# 🎨 Theo's Dotfiles
+# Theo's Dotfiles
 
 A sleek, modern, dynamic Wayland desktop environment powered by **Niri** (scrollable tiling compositor) with a real-time, wallpaper-driven theme engine.
 
@@ -9,25 +9,25 @@ A sleek, modern, dynamic Wayland desktop environment powered by **Niri** (scroll
 
 ---
 
-## 🌟 Overview & Highlights
+## Overview & Highlights
 
 - **Scrollable Tiling Compositor**: Smooth, modern Wayland experience powered by **Niri**.
 - **Dynamic Real-Time Theming**: Press `Mod + W` to pick any wallpaper. An automated Python theme generator extracts the dominant palette and updates colors across **all desktop components instantly** without restarting sessions:
-  - 🖥️ **Swaybg**: Sets the background wallpaper.
-  - 📊 **Waybar**: Updates CSS color variables (`colors.css`) and reloads instantly.
-  - 🚀 **Rofi**: Dynamically updates launcher styles, clipboard menu, and power menu.
-  - 💻 **Ghostty**: Updates terminal color theme configuration on the fly.
-  - ⚡ **Zellij**: Hot-reloads terminal multiplexer colors live in active sessions.
-  - 📝 **Neovim**: Updates color scheme configuration in `init.lua` / `colors.lua`.
-  - 🚀 **Starship**: Dynamically sets prompt color accents.
-  - 🪟 **Niri**: Updates window focus ring and active border colors.
-  - 🔔 **Mako**: Updates notification popups with matching accent borders.
+  -  **Swaybg**: Sets the background wallpaper.
+  -  **Waybar**: Updates CSS color variables (`colors.css`) and reloads instantly.
+  -  **Rofi**: Dynamically updates launcher styles, clipboard menu, and power menu.
+  -  **Ghostty**: Updates terminal color theme configuration on the fly.
+  -  **Zellij**: Hot-reloads terminal multiplexer colors live in active sessions.
+  -  **Neovim**: Updates color scheme configuration in `init.lua` / `colors.lua`.
+  -  **Starship**: Dynamically sets prompt color accents.
+  -  **Niri**: Updates window focus ring and active border colors.
+  -  **Mako**: Updates notification popups with matching accent borders.
 - **Modern CLI Stack**: `eza`, `bat`, `fd`, `btop`, `fastfetch`, `lazygit`, `bluetuith`, `nmtui`, `zoxide`, and `yazi`.
 - **Interactive Cheatsheet**: Run `dots-help` in any terminal (or `dots-help -i` for interactive `fzf` search) to view all aliases, keybindings, and system shortcuts.
 
 ---
 
-## ⌨️ Desktop Keybindings (Niri)
+## Desktop Keybindings (Niri)
 
 | Keybinding | Action | Description |
 | :--- | :--- | :--- |
@@ -47,7 +47,7 @@ A sleek, modern, dynamic Wayland desktop environment powered by **Niri** (scroll
 
 ---
 
-## 🎨 Dynamic Theme Engine (`walltheme`)
+##  Dynamic Theme Engine (`walltheme`)
 
 The heart of this configuration is `scripts/theme_generator.py` triggered by `walltheme <image_path>` or through the Rofi Wallpaper Picker (`Mod + W`).
 
@@ -58,7 +58,7 @@ The heart of this configuration is `scripts/theme_generator.py` triggered by `wa
 
 ---
 
-## 🐚 Shell & CLI Enhancements
+##  Shell & CLI Enhancements
 
 This repository replaces legacy shell utilities with modern Rust/C++ alternatives:
 
@@ -75,14 +75,14 @@ This repository replaces legacy shell utilities with modern Rust/C++ alternative
 
 ---
 
-## 🤖 System Utilities
+##  System Utilities
 
 - **`dots-help`** (`dots_help.py`): Interactive CLI cheatsheet. Run `dots-help` or `dots-help -i` to filter shortcuts interactively with `fzf`.
 - **`tokens`** (`check_tokens.py`): AI token consumption and GCP estimated usage monitor.
 
 ---
 
-## 🛠️ Repository Structure
+##  Repository Structure
 
 ```
 Dotfiles/
@@ -106,7 +106,7 @@ Dotfiles/
 
 ---
 
-## 📦 Setup & Symlinking
+##  Setup & Symlinking
 
 Configs are symlinked into `~/.config/`:
 
