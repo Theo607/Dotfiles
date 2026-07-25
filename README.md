@@ -121,3 +121,11 @@ ln -s ~/Dotfiles/.config/nvim ~/.config/nvim
 ln -s ~/Dotfiles/.config/yazi ~/.config/yazi
 ln -s ~/Dotfiles/.config/starship.toml ~/.config/starship.toml
 ```
+
+Alternatively, run the automated installation script:
+
+```bash
+cd ~/Dotfiles
+./install.sh
+```
+

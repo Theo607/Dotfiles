@@ -25,7 +25,7 @@ if [ -n "$selected" ]; then
     # Strip icon prefix
     filename=$(echo "$selected" | sed 's/^󰸉  //')
     wallpaper_path="$WALLPAPER_DIR/$filename"
-    
+
     if [ -f "$wallpaper_path" ]; then
         "$HOME/.local/bin/walltheme" "$wallpaper_path"
         notify-send "Wallpaper Updated" "Applied: $filename" -i "$wallpaper_path"

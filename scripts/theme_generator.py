@@ -37,8 +37,6 @@ def extract_palette(image_path):
     avg_b = sum(c[2] for c in colors_rgb) / len(colors_rgb)
     dom_h, dom_s, _ = colorsys.rgb_to_hsv(avg_r/255.0, avg_g/255.0, avg_b/255.0)
     
-    # Soft obsidian-lavender background (Helix hex_lavender inspired: #181a17 / #16141d)
-    # Value 0.13, Saturation 0.20 -> comfortable dark charcoal tint, not pitch black
     bg_r, bg_g, bg_b = colorsys.hsv_to_rgb(dom_h, min(dom_s, 0.22), 0.13)
     bg = rgb_to_hex((bg_r*255, bg_g*255, bg_b*255))
     
@@ -48,14 +46,12 @@ def extract_palette(image_path):
     sel_r, sel_g, sel_b = colorsys.hsv_to_rgb(dom_h, min(dom_s, 0.25), 0.28)
     bg_sel = rgb_to_hex((sel_r*255, sel_g*255, sel_b*255))
 
-    # Foreground: Soft mauve/lavender white (#c8c4d6), non-glare and easy on eyes
     fg_r, fg_g, fg_b = colorsys.hsv_to_rgb(dom_h, 0.08, 0.84)
     fg = rgb_to_hex((fg_r*255, fg_g*255, fg_b*255))
     
     fg_muted_r, fg_muted_g, fg_muted_b = colorsys.hsv_to_rgb(dom_h, 0.18, 0.52)
     fg_muted = rgb_to_hex((fg_muted_r*255, fg_muted_g*255, fg_muted_b*255))
 
-    # Accents: Muted, desaturated, non-neony Hex Lavender tones
     vibrant_candidates = sorted(colors_hsv, key=lambda c: c[1] * c[2], reverse=True)
     primary_hsv = vibrant_candidates[0] if vibrant_candidates else (dom_h, 0.4, 0.8, (140, 130, 200))
     p_h, _, _, _ = primary_hsv
