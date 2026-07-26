@@ -51,7 +51,6 @@ spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 
 binds {
     Mod+T { spawn "ghostty"; }
-    Mod+Shift+T { spawn "ghostty" "--title=ghostty-scratchpad"; }
     Mod+D { spawn "rofi" "-show" "drun"; }
     Mod+W { spawn "~/.config/rofi/wallpaper_picker.sh"; }
     Mod+V { spawn "~/.config/rofi/cliphist.sh"; }
