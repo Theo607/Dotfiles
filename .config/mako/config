@@ -18,25 +18,25 @@ ignore-timeout=0
 layer=overlay
 anchor=top-right
 
-background-color=#1b211cee
-text-color=#c5d6c7
-border-color=#d1c979
-progress-color=over #d1c979
+background-color=#1c2021ee
+text-color=#c5d3d6
+border-color=#79b2d1
+progress-color=over #79b2d1
 
 [urgency=low]
-background-color=#1b211cee
-text-color=#6c8470
-border-color=#595742
+background-color=#1c2021ee
+text-color=#6c8184
+border-color=#425159
 default-timeout=3000
 
 [urgency=normal]
-background-color=#1b211cee
-text-color=#c5d6c7
-border-color=#d1c979
+background-color=#1c2021ee
+text-color=#c5d3d6
+border-color=#79b2d1
 default-timeout=5000
 
 [urgency=high]
-background-color=#1b211cee
+background-color=#1c2021ee
 text-color=#ffffff
 border-color=#d16c78
 default-timeout=0

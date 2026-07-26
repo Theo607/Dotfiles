@@ -32,12 +32,12 @@ $line_break$character"""
 palette = 'dynamic'
 
 [palettes.dynamic]
-color_bg0 = '#1b211c'
-color_bg1 = '#283029'
-color_bg3 = '#3a473c'
-color_fg0 = '#c5d6c7'
-color_lavender = '#d1c979'
-color_mauve = '#8ccc7e'
+color_bg0 = '#1c2021'
+color_bg1 = '#292f30'
+color_bg3 = '#3c4547'
+color_fg0 = '#c5d3d6'
+color_lavender = '#79b2d1'
+color_mauve = '#917ecc'
 color_blue = '#81a1d1'
 color_teal = '#7ecccc'
 color_green = '#7bc682'

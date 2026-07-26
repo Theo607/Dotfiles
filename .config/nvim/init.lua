@@ -1,4 +1,3 @@
--- File names
 local opts = "base.options"
 local globs = "base.globals"
 local keys = "base.keymaps"

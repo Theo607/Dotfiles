@@ -696,7 +696,7 @@ def main():
     update_waybar(palette, dotfiles_dir)
     update_rofi(palette, dotfiles_dir)
     update_ghostty(palette, dotfiles_dir)
-    update_neovim(palette, dotfiles_dir)
+    # update_neovim(palette, dotfiles_dir)
     update_starship(palette, dotfiles_dir)
     update_niri(palette, dotfiles_dir)
     update_zellij(palette, dotfiles_dir)

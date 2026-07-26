@@ -1,8 +1,8 @@
 themes {
     dynamic {
-        fg "#c5d6c7"
-        bg "#1b211c"
-        black "#1b211c"
+        fg "#c5d3d6"
+        bg "#1c2021"
+        black "#1c2021"
         red "#d16c78"
         green "#7bc682"
         yellow "#d1b879"
@@ -10,6 +10,6 @@ themes {
         magenta "#b479d1"
         cyan "#7ecccc"
         white "#ffffff"
-        orange "#d1c979"
+        orange "#79b2d1"
     }
 }

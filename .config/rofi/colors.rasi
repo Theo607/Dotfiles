@@ -1,8 +1,8 @@
 /* Generated dynamically from wallpaper */
 * {
-    bg: #1b211c;
-    bg-alt: #283029;
-    fg: #c5d6c7;
-    accent: #d1c979;
-    border-col: #595742;
+    bg: #1c2021;
+    bg-alt: #292f30;
+    fg: #c5d3d6;
+    accent: #79b2d1;
+    border-col: #425159;
 }

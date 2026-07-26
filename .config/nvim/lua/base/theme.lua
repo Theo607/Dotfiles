@@ -1,1 +1,1 @@
-vim.cmd.colorscheme("dynamic")
+vim.cmd.colorscheme("melange")
